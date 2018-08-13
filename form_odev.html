@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HTML Form Ödevi</title>
+</head>
+<body style="background-color:maroon ;">
+<!-- Form başlangıcı-->
+<form name="yarisma_form" method="get">
+	<label for="form_element" style="font-size:20px;  color:white; font-weight:bolder">Yarışmaya katılmak için lütfen aşağıdaki formu doldurun</label>
+    <table style="background-color: #5d4617; color: rgba(200,192,248,.85); font-weight: bold; border:solid 1px green;" id="form_element">
+        <tr>
+            <td>Adı Soyadı</td>
+            <td>:</td>
+            <td><input type="text" placeholder="Ad-soyad giriniz"></td>
+        </tr>
+        <tr>
+            <td>Email Adresi</td>
+            <td>:</td>
+			<!-- Bu input @ işereti var mı diye kontrol eder.-->
+            <td><input type="email" placeholder="email@site.com"></td>
+        </tr>
+        <tr>
+            <td>Telefon Numaranız</td>
+            <td>:</td>
+            <td><input type="number" placeholder="5XXXXXXXXX"></td>
+        </tr>
+        <tr>
+            <td>Doğum Tarihiniz</td>
+            <td>:</td>
+            <td><input type="datetime-local"></td>
+        </tr>
+        <tr>
+            <td>Daha Önce bu yarışmaya katıldınız mı?</td>
+            <td>:</td>
+            <td STYLE="font-weight:normal"><label for="katil1">Evet</label><input type="radio" id="katil1" name="katil"> &nbsp; &nbsp; <label for="katil2">Hayır</label><input type="radio" id="katil2" name="katil"> </td>
+        </tr>
+        <tr>
+            <td>Aşağıdaki hangisi size aşinadır</td>
+            <td>:</td>
+            <td  STYLE="font-weight:normal">
+                <label for="soru1">Bu</label><input type="radio" id="soru1" name="soru">
+                <label for="soru2">Bu olmadığı kesin</label><input type="radio" id="soru2" name="soru">
+                <label for="soru3">Hepsi</label><input type="radio" id="soru3" name="soru">
+                <label for="soru4">Hiçbiri</label><input type="radio" id="soru4" name="soru">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" style="border-bottom:solid 1px green;border-top:solid 1px green;">
+			<input type="checkbox" name="istek" id="istek"><label for="istek">Bu yarışmayla ilgili gelebilecek her e-posta bildirimini istiyorum.</label></td>
+        </tr>
+        <tr>
+            <td>Hangi üniversiteden mezunsunuz?</td>
+            <td>:</td>
+            <td>
+			<!-- Burada ilk element bilerek value ataması yapılmadan gönderiliyor-->
+                <select name="uni" id="uni">
+                    <option>Seçiniz</option>
+                    <option value="1">ODTÜ</option>
+                    <option value="2">Hacettepe</option>
+                    <option value="3">Boğaziçi</option>
+                    <option value="4">Hayat Üniversitesi</option>
+                    <option value="5">Böyle bir okul yok</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Kullanıcı Adı</td>
+            <td>:</td>
+            <td><input type="text" minlength="3" placeholder="En az üç karakter giriniz"></td>
+        </tr>
+        <tr>
+            <td>Şifre</td>
+            <td>:</td>
+            <td><input type="password" minlength="8" maxlength="25" placeholder="En az 8 karakter şifre"></td>
+        </tr>
+        <tr>
+            <td>Yorumlarınız</td>
+            <td>:</td>
+            <td><textarea name="yorum" id="yorum" cols="30" rows="10" placeholder="Lütfen buraya yorumlarınızı giriniz..."></textarea></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td><input type="button" value="Formu gönder"/></td>
+        </tr>
+    </table>
+	</form>
+<!-- Form bitişi-->
+</body>
+</html>
