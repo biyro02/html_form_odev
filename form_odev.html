@@ -1,94 +1,232 @@
 <!doctype html>
 <html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>HTML Form Ödevi</title>
-</head>
-<body style="background-color:maroon ;" oncontextmenu="return false">
-<!-- Form başlangıcı-->
-<form name="yarisma_form" method="get">
-	<label for="form_element" style="font-size:20px;  color:white; font-weight:bolder">Yarışmaya katılmak için lütfen aşağıdaki formu doldurun</label>
-    <table style="background-color: #5d4617; color: rgba(200,192,248,.85); font-weight: bold; border:solid 1px green;" id="form_element">
-        <tr>
-            <td>Adı Soyadı</td>
-            <td>:</td>
-            <td><input type="text" placeholder="Ad-soyad giriniz"></td>
-        </tr>
-        <tr>
-            <td>Email Adresi</td>
-            <td>:</td>
-			<!-- Bu input @ işereti var mı diye kontrol eder.-->
-            <td><input type="email" placeholder="email@site.com"></td>
-        </tr>
-        <tr>
-            <td>Telefon Numaranız</td>
-            <td>:</td>
-            <td><input type="number" placeholder="5XXXXXXXXX"></td>
-        </tr>
-        <tr>
-            <td>Doğum Tarihiniz</td>
-            <td>:</td>
-            <td><input type="datetime-local"></td>
-        </tr>
-        <tr>
-            <td>Daha Önce bu yarışmaya katıldınız mı?</td>
-            <td>:</td>
-            <td STYLE="font-weight:normal"><label for="katil1">Evet</label><input type="radio" id="katil1" name="katil"> &nbsp; &nbsp; <label for="katil2">Hayır</label><input type="radio" id="katil2" name="katil"> </td>
-        </tr>
-        <tr>
-            <td>Aşağıdaki hangisi size aşinadır</td>
-            <td>:</td>
-            <td  STYLE="font-weight:normal">
-                <label for="soru1">Bu</label><input type="radio" id="soru1" name="soru">
-                <label for="soru2">Bu olmadığı kesin</label><input type="radio" id="soru2" name="soru">
-                <label for="soru3">Hepsi</label><input type="radio" id="soru3" name="soru">
-                <label for="soru4">Hiçbiri</label><input type="radio" id="soru4" name="soru">
-            </td>
-        </tr>
-        <tr>
-            <td colspan="3" style="border-bottom:solid 1px green;border-top:solid 1px green;">
-			<input type="checkbox" name="istek" id="istek"><label for="istek">Bu yarışmayla ilgili gelebilecek her e-posta bildirimini istiyorum.</label></td>
-        </tr>
-        <tr>
-            <td>Hangi üniversiteden mezunsunuz?</td>
-            <td>:</td>
-            <td>
-			<!-- Burada ilk element bilerek value ataması yapılmadan gönderiliyor-->
-                <select name="uni" id="uni">
-                    <option>Seçiniz</option>
-                    <option value="1">ODTÜ</option>
-                    <option value="2">Hacettepe</option>
-                    <option value="3">Boğaziçi</option>
-                    <option value="4">Hayat Üniversitesi</option>
-                    <option value="5">Böyle bir okul yok</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>Kullanıcı Adı</td>
-            <td>:</td>
-            <td><input type="text" minlength="3" placeholder="En az üç karakter giriniz"></td>
-        </tr>
-        <tr>
-            <td>Şifre</td>
-            <td>:</td>
-            <td><input type="password" minlength="8" maxlength="25" placeholder="En az 8 karakter şifre"></td>
-        </tr>
-        <tr>
-            <td>Yorumlarınız</td>
-            <td>:</td>
-            <td><textarea name="yorum" id="yorum" cols="30" rows="10" placeholder="Lütfen buraya yorumlarınızı giriniz..."></textarea></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td><input type="button" value="Formu gönder"/></td>
-        </tr>
-    </table>
-	</form>
-<!-- Form bitişi-->
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>HTML Form Ödevi</title>
+
+        <style>
+            div{
+                float: left;
+                margin: 1px;
+            }
+            .form{
+                background-color: #5d4617;
+                color: rgba(200,192,248,.85);
+                font-weight: bold;
+                border:solid 1px green;
+                width: 750px;
+            }
+
+            .grup{
+                width: 100%;
+                height: auto;
+            }
+
+            .ayrac{
+                width: 10px;
+                height: auto;
+            }
+
+            .inputlar{
+                width: 50%;
+            }
+
+            .aciklama{
+                width: 46%;
+            }
+
+            .check_box_{
+                width: 100%;
+                border-top: solid 1px green;
+                border-bottom: solid 1px green;
+            }
+            label{
+                font-weight: normal;
+            }
+        </style>
+    </head>
+    <body style="background-color:maroon ;" oncontextmenu="return false">
+        <!-- Form başlangıcı(tablo içinde)-->
+        <form name="form_1" method="get">
+            <label for="form_element" style="font-size:20px;  color:white; font-weight:bolder">Yarışmaya katılmak için lütfen aşağıdaki formu doldurun</label>
+            <table style="background-color: #5d4617; color: rgba(200,192,248,.85); font-weight: bold; border:solid 1px green;" id="form_element">
+                <tr>
+                    <td>Adı Soyadı</td>
+                    <td>:</td>
+                    <!--Bu input her türlü metni yazmamıza yarar-->
+                    <td><input type="text" placeholder="Ad-soyad giriniz" name="ad_soyad"></td>
+                </tr>
+                <tr>
+                    <td>Email Adresi</td>
+                    <td>:</td>
+                    <!-- Bu input @ işereti var mı diye kontrol eder.-->
+                    <td><input type="email" placeholder="email@site.com" name="e_posta"></td>
+                </tr>
+                <tr>
+                    <td>Telefon Numaranız</td>
+                    <td>:</td>
+                    <!--Bu input uygulamalarda telefon numarasının yakalanmasına yarar-->
+                    <td><input type="tel" placeholder="5XXXXXXXXX" name="tel"></td>
+                </tr>
+                <tr>
+                    <td>Doğum Tarihiniz</td>
+                    <td>:</td>
+                    <!--Tarih seçimi yapılabilen ve bir takvimin çıktığı element-->
+                    <td><input type="date" placeholder="dd/mm/YYYY" name="dogum_tarihi"></td>
+                </tr>
+                <tr>
+                    <td>Daha Önce bu yarışmaya katıldınız mı?</td>
+                    <td>:</td>
+                    <!--Bu inputlar (radio) aynı isimde olunca sadece aynı anda biri seçilebilir-->
+                    <td style="font-weight:normal">
+                        <label for="katil1">Evet</label><input type="radio" id="katil1" name="katil"> &nbsp; &nbsp;
+                        <label for="katil2">Hayır</label><input type="radio" id="katil2" name="katil">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Aşağıdakilerden hangisi size aşinadır</td>
+                    <td>:</td>
+                    <!--Farklı bir seçenek daha yaratmak istiyorsak yine kendi içinde aynı name koyarız fakat bir öncekinden farklı bir isim olmalı-->
+                    <td  style="font-weight:normal">
+                        <label for="soru1">Bu</label><input type="radio" id="soru1" name="soru">
+                        <label for="soru2">Bu olmadığı kesin</label><input type="radio" id="soru2" name="soru">
+                        <label for="soru3">Hepsi</label><input type="radio" id="soru3" name="soru">
+                        <label for="soru4">Hiçbiri</label><input type="radio" id="soru4" name="soru">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="border-bottom:solid 1px green;border-top:solid 1px green;">
+                        <!--Bu input check edilebilir ya da kaldırılabilir. İki değeri vardır. Ya seçilidir, ya da değildir.-->
+                        <input type="checkbox" name="istek" id="istek">
+                        <label for="istek">Bu yarışmayla ilgili gelebilecek her e-posta bildirimini istiyorum.</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Hangi üniversiteden mezunsunuz?</td>
+                    <td>:</td>
+                    <td>
+                    <!-- Burada ilk element bilerek value ataması yapılmadan gönderiliyor ve dinamize edilebilmesi için muhakkak value değerleri belirlenmelidir -->
+                        <select name="uni" id="uni">
+                            <option>Seçiniz</option>
+                            <option value="1">ODTÜ</option>
+                            <option value="2">Hacettepe</option>
+                            <option value="3">Boğaziçi</option>
+                            <option value="4">Hayat Üniversitesi</option>
+                            <option value="5">Böyle bir okul yok</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Kullanıcı Adı</td>
+                    <td>:</td>
+                    <td><input type="text" minlength="3" placeholder="En az üç karakter giriniz" name="kullanici_adi"></td>
+                </tr>
+                <tr>
+                    <td>Şifre</td>
+                    <td>:</td>
+                    <td><input type="password" minlength="8" maxlength="25" placeholder="En az 8 karakter şifre" name="password"></td>
+                </tr>
+                <tr>
+                    <td>Yorumlarınız</td>
+                    <td>:</td>
+                    <td><textarea name="yorum" id="yorum" cols="30" rows="10" placeholder="Lütfen buraya yorumlarınızı giriniz..."></textarea></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td><input type="button" value="Formu gönder" name="form_gonder"/></td>
+                </tr>
+            </table>
+        </form>
+        <!-- Form bitişi(tablo)-->
+        <br>
+        <br>
+        <br>
+        <!--Form başlangıç (div içinde)-->
+        <form method="get" name="form2">
+            <label for="form_elementa" style="font-size:20px;  color:white; font-weight:bolder">Yarışmaya katılmak için lütfen aşağıdaki formu doldurun</label><br>
+            <div class="form" id="form_elementa">
+                <div class="grup">
+                    <div class="aciklama">Ad Soyad</div>
+                    <div class="ayrac">:</div>
+                    <div class="inputlar"><input type="text" placeholder="Ad-Soyad" name="adsoyada"></div>
+                </div>
+                <div class="grup">
+                    <div class="aciklama">Email Adresi</div>
+                    <div class="ayrac">:</div>
+                    <div class="inputlar"><input type="email" placeholder="email@site.com" name="e_postaa"></div>
+                </div>
+                <div class="grup">
+                    <div class="aciklama">Telefon Numaranız</div>
+                    <div class="ayrac">:</div>
+                    <div class="inputlar"><input type="tel" placeholder="5XXXXXXXXX" name="tela"></div>
+                </div>
+                <div class="grup">
+                    <div class="aciklama">Doğum Tarihiniz</div>
+                    <div class="ayrac">:</div>
+                    <div class="inputlar"><input type="date" name="dogum_tarihia" placeholder="dd/mm/YYYY"></div>
+                </div>
+                <div class="grup">
+                    <div class="aciklama">Daha Önce bu yarışmaya katıldınız mı?</div>
+                    <div class="ayrac">:</div>
+                    <div class="inputlar">
+                        <label for="katil1a">Evet</label><input type="radio" id="katil1a" name="katila"> &nbsp; &nbsp;
+                        <label for="katil2a">Hayır</label><input type="radio" id="katil2a" name="katila">
+                    </div>
+                </div>
+                <div class="grup">
+                    <div class="aciklama">Aşağıdaki hangisi size aşinadır</div>
+                    <div class="ayrac">:</div>
+                    <div class="inputlar">
+                        <label for="soru1a">Bu</label><input type="radio" id="soru1a" name="sorua">
+                        <label for="soru2a">Bu olmadığı kesin</label><input type="radio" id="soru2a" name="sorua">
+                        <label for="soru3a">Hepsi</label><input type="radio" id="soru3a" name="sorua">
+                        <label for="soru4a">Hiçbiri</label><input type="radio" id="soru4a" name="sorua">
+                    </div>
+                </div>
+                <div class="grup">
+                    <div class="check_box_">
+                        <input type="checkbox" name="isteka" id="isteka">
+                        <label for="isteka">Bu yarışmayla ilgili gelebilecek her e-posta bildirimini istiyorum.</label>
+                    </div>
+                </div>
+                <div class="grup">
+                    <div class="aciklama">Hangi üniversiteden mezunsunuz?</div>
+                    <div class="ayrac">:</div>
+                    <div class="inputlar">
+                        <select name="unia" id="unia">
+                            <option>Seçiniz</option>
+                            <option value="1">ODTÜ</option>
+                            <option value="2">Hacettepe</option>
+                            <option value="3">Boğaziçi</option>
+                            <option value="4">Hayat Üniversitesi</option>
+                            <option value="5">Böyle bir okul yok</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="grup">
+                    <div class="aciklama">Kullanıcı Adı</div>
+                    <div class="ayrac">:</div>
+                    <div class="inputlar"><input type="text" minlength="3" placeholder="En az üç karakter giriniz" name="kullanici_adia"></div>
+                </div>
+                <div class="grup">
+                    <div class="aciklama">Yorumlarınız</div>
+                    <div class="ayrac">:</div>
+                    <div class="inputlar">
+                        <textarea name="yoruma" id="yoruma" cols="30" rows="10" placeholder="Lütfen buraya yorumlarınızı giriniz..."></textarea>
+                    </div>
+                </div>
+                <div class="grup">
+                    <div class="aciklama"></div>
+                    <div class="ayrac">:</div>
+                    <div class="inputlar"><input type="button" value="Formu gönder" name="form_gonder"/></div>
+                </div>
+            </div>
+        </form>
+        <!--Form Bitiş(div)-->
+
+    </body>
 </html>
